@@ -68,6 +68,7 @@ import CheckBalance from './components/CheckBalance';
 import Deposit from './components/Deposit';
 import Withdraw from './components/Withdraw';
 import Transactions from './components/Transactions';
+import FindBranch from './components/FindBranch';
 import Logout from './components/Logout';
 
 function App() {
@@ -102,6 +103,9 @@ function App() {
                 <li>
                   <Link to="/transactions">View Transactions</Link>
                 </li>
+                <li>
+               <Link to="/find-branch">Find a Branch</Link>
+              </li>
               </ul>
             </nav>
             <Link to="/logout"><button>Logout</button></Link>
@@ -110,6 +114,7 @@ function App() {
               <Route path="/deposit" element={<Deposit userID={userID} />} />
               <Route path="/withdraw" element={<Withdraw userID={userID} />} />
               <Route path="/transactions" element={<Transactions userID={userID} />} />
+              <Route path="/find-branch" element={<FindBranch />} />
               <Route path="/logout" element={<Logout onLogout={handleLogout} />}/>
             </Routes>
           </>

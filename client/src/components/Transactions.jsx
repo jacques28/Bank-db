@@ -23,7 +23,7 @@ const Transactions = ({ userID }) => {
       {transactions ? (
         transactions.map((transaction, index) => (
           <div key={index}>
-            {/* Replace 'type', 'amount', and 'date' with actual property names from your transaction data */}
+
             <p>Type: {transaction.type}</p>
             <p>Amount: {transaction.amount}</p>
             <p>Date: {transaction.date}</p>

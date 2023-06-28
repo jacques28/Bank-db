@@ -19,10 +19,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
-// ... other routes ...
-
 router.post('/', async (req, res) => {
   const { userID, type, amount } = req.body;
 
@@ -57,6 +53,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ success: false, message: 'Error adding transaction', error });
   }
 });
+
 
 
 export default router;

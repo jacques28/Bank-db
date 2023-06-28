@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const FindBranch = () => {
   const [city, setCity] = useState('');
   const [branches, setBranches] = useState([]);
 
-  const branchesData = {
-    'New York': ['123 Main St', '456 Broadway Ave', '789 Wall St'],
-    'Paris': ['123 Rue de Rivoli', '456 Avenue des Champs-Élysées', '789 Rue de Courcelles'],
-    'Lome' : ['Agoe','Adidogome','Dekon', 'Adakpame', 'Nyekonakpoe'],
-  };
-
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    setBranches(branchesData[city] || []);
+    try {
+      const response = await axios.get(`http://localhost:3000/branch?city=${city}`);
+      setBranches(response.data.branches);
+    } catch (error) {
+      console.error('Error fetching branches:', error);
+      setBranches([]);
+    }
   };
 
   return (
@@ -33,7 +34,7 @@ const FindBranch = () => {
       {branches.length > 0 ? (
         <ul>
           {branches.map((branch, index) => (
-            <li key={index}>{branch}</li>
+            <li key={index}>{branch.address}</li>
           ))}
         </ul>
       ) : (

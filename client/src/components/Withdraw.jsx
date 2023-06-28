@@ -14,6 +14,7 @@ const Withdraw = ({ userID }) => {
         amount: parseFloat(amount),
       });
       setMessage(response.data.message);
+      props.onBalanceChange();
     } catch (error) {
       console.error('Error withdrawing money:', error);
       setMessage('Error withdrawing money');

@@ -4,11 +4,12 @@ import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import balanceRouter from './routes/balance.js';
 import transactionsRouter from './routes/transaction.js';
+import branchRouter from './routes/branch.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
 
-//Here is the Initialize the config file
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/balance', balanceRouter);
 app.use('/transaction', transactionsRouter);
+app.use('/branch', branchRouter);
 
 app.listen(3000);
 

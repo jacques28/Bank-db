@@ -14,11 +14,16 @@ const Deposit = ({ userID }) => {
         amount: parseFloat(amount),
       });
       setMessage(response.data.message);
+     
+      if (response.status === 201) {
+        props.onBalanceChange();
+      }
     } catch (error) {
-      console.error('Error deposited money:', error);
-      setMessage('Error deposited money');
+      console.error('Error depositing money:', error);
+      setMessage('Error depositing money');
     }
   };
+  
   
 
   return (

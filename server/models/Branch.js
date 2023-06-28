@@ -8,12 +8,12 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedT
   .catch((err) => {
     console.log("Not connected to MongoDB:", err);
   });
-  
-const userSchema = new mongoose.Schema({
-  userID: { type: String, required: true, unique: true },
-  balance: { type: Number, default: 0 }, 
+
+const branchSchema = new mongoose.Schema({
+  city: String,
+  address: String,
 });
 
-const User = mongoose.model('User', userSchema);
+const Branch = mongoose.model('Branch', branchSchema);
 
-export default User;
+export default Branch;
